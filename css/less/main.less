@@ -1,9 +1,15 @@
 :root {
-	--clr-base: #000;
-	--clr-att: #f00;
+	--clr-base: #50516A;
+	--clr-title: #242545;
+	--clr-att: #425DC5;
+	--clr-att-hover: #8D9EDC;
+	--clr-light: #7C7C8F;
+    --clr-bg: #F4F6FC;
 
-	--min: 320px;
-	--max: 1200px;
+	--min: 375px;
+	--max: 1250px;
+    
+    --paddingContainer: 19px;
 
 	font-size: 10px;
 }
@@ -13,15 +19,39 @@
 .elm-hidden {
 	display: none;
 }
+.main-gr() {
+    background: linear-gradient(70.71deg, #425DC5 11.98%, #5442C5 86.47%);
+}
+.main-shadow() {
+    box-shadow: 0px 0px 20px rgba(198, 227, 255, 0.49), 0px 2px 0px #E1E1E1, 0px 19px 47px rgba(191, 197, 216, 0.51);
+}
+.tile-main {
+    background: var(--clr-bg);
+    border-radius: 13px;
+    transition: all ease 0.2s;
+    .tile-ico {
+        transition: all ease 0.2s;
+    }
+    &:hover {
+        background-color: #fff;
+        .main-shadow();
+        .tile-ico {
+            box-shadow: 0px 0px 20px rgba(198, 227, 255, 0.49), 0px 1px 0px #29376A, 0px 19px 47px #B3BAD1;
+        }
+    }
+}
 /* ----------------------------------- *\
 			main styles
 \* ----------------------------------- */
 body {
-	color: var(--clr-base, #000);
+	color: var(--clr-base);
 	background: #fff;
+    font-size: 18px;
+    line-height: (32/18);
 }
-p, ul, ol {
+p, ul, ol, table, blockquote, .bq-text {
 	position: relative;
+    margin-bottom: (32/18em);
 	img {
 		max-width: 100%;
 	}
@@ -29,24 +59,25 @@ p, ul, ol {
 		margin-bottom: 0 !important;
 	}
 }
-
 li {
 	position: relative;
 }
 a {
-	text-decoration: none;
-	color: var(--clr-att, #f00);
-	&:hover {
-		text-decoration: none;
-		color: var(--clr-att, #f00);
-	}
+    text-decoration: none;
+    color: var(--clr-att);
+    &:hover {
+        text-decoration: none;
+        color: var(--clr-att-hover);
+    }
 }
 a.link-main, .link-main {
-	text-decoration: none;
-	border-bottom: 1px solid;
-	&:hover {
-		border-bottom: none;
-	}
+    text-decoration: none;
+    border-bottom: 1px solid;
+    &:hover {
+    }
+}
+.link-phone {
+    white-space: nowrap;
 }
 h1, .h1-title,
 h2, .h2-title,
@@ -56,7 +87,102 @@ h5, .h5-title,
 h6, .h6-title {
 	display: block;
 	position: relative;
+    font-weight: bold;
+    margin: 1em 0 24px 0;
+    color: var(--clr-title);
     &:first-child {
         margin-top: 0;
+    }
+}
+.h1-title, h1,
+.h2-title, h2 {
+    font-size: 32px;
+    line-height: (44/32);
+}
+.h2-title, h2 {
+    line-height: (48/32);
+}
+.h3-title, h3 {
+    font-size: 24px;
+    line-height: (33/24);
+}
+.h4-title, h4 {
+    font-size: 24px;
+    line-height: 1.784;
+}
+.h5-title, h5,
+.h6-title, h6 {
+    font-size: 18px;
+    line-height: 1.784;
+}
+.title-decor {
+    padding-top: 40px;
+    &:before {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: var(--clr-att);
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -40px;
+    }
+}
+.text-att, .title-att {
+    color: var(--clr-att);
+}
+.text-light, .title-light {
+    color: var(--clr-light);
+}
+.text-center, .title-center {
+    text-align: center;
+}
+@media (max-width: 1399px) {
+    :root {
+        font-size: 9.5px;
+    }
+}
+@media (max-width: 1199px) {
+    :root {
+        font-size: 9px;
+    }
+}
+@media (max-width: 1023px) {
+    :root {
+        font-size: 8px;
+    }
+}
+@media (max-width: 767px) {
+    :root {
+        font-size: 7px;
+    }
+}
+@media (min-width: 1024px) {
+    :root {
+        --paddingContainer: 30px;
+    }
+    .title-decor {
+        &:before {
+            left: 0;
+            margin-left: 0;
+        }
+    }
+    .h1-title, h1 {
+        font-size: 6.2rem;
+        line-height: (81/62);
+    }
+    .h2-title, h2 {
+        font-size: 4.8rem;
+        line-height: (86/48);
+    }
+    .h3-title, h3 {
+        font-size: 3.2rem;
+        line-height: (58/32);
+    }
+}
+@media (min-width: 1400px) {
+    :root {
+        --paddingContainer: 40px;
     }
 }
