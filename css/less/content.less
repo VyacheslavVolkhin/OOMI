@@ -199,6 +199,7 @@
         padding: 0 8px;
     }
     .slick-dots {
+        width: 100%;
         padding-top: 30px;
     }
     .ico-arrow {
@@ -309,9 +310,17 @@
         .slick-list {
             overflow: visible;
         }
-        .item-tile-main, .item-tile-icon, .item-tile-case, .item-tile-logo, .item-tile-review {
+        .item-tile-main, .item-tile-icon, .item-tile-case, .item-tile-logo, .item-tile-review  {
             width: 326px;
             max-width: 326px;
+        }
+        .item-tile-price {
+            width: 336px;
+        }
+        .item-tile-example {
+            width: 343px;
+            max-width: 343px;
+            transition: all ease 0.2s;
         }
     }
 }
@@ -332,8 +341,11 @@
             order: 2;
         }
         .btn {
-            &:not(:hover) {
+            &:before {
                 background: #273876;
+            }
+            &:not(:hover) {
+                
             }
             .button-ico {
                 display: none;
@@ -597,6 +609,28 @@
                 }
             }
         }
+        .slider-height {
+            .slick-track {
+                display: flex;
+                &:before, &:after {
+                    display: none;
+                }
+                .slick-slide {
+                    min-height: 100%;
+                    float: none;
+                    height: auto;
+                    &>div {
+                        min-height: 100%;
+                        display: flex;
+                    }
+                }
+                .sl-wrap {
+                    display: block !important;
+                    width: 100%;
+                    min-height: 100%;
+                }
+            }   
+        }
         .slick-list {
             overflow: visible;
         }
@@ -628,6 +662,19 @@
         }
         .slick-dots {
             padding-top: 6rem;
+        }
+        .slick-slide {
+            .item-tile-example {
+                opacity: 0.3;
+            }
+            &.slick-active {
+                .item-tile-example {
+                    opacity: 1;
+                }
+            }
+            &:not(.slick-active) {
+
+            }
         }
     }
     .title-box {

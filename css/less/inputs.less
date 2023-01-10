@@ -68,39 +68,81 @@ select.form-input:required:invalid {
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    .main-gr();
+    z-index: 5;
+    background: none;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: opacity ease 0.2s;
+        border-radius: 4px;
+        .main-gr();
+        z-index: -1;
+    }
     &:hover {
         background: #FF9E3F;
         color: #fff;
+        &:before {
+            opacity: 0;
+        }
     }
     &:active {
         background: #FFB165;
         color: #fff;
     }
     &.button-second {
-        &:not(:hover) {
+        &:before {
             background: #273876;
+        }
+        &:not(:hover) {
+            
         }
     }
     &.button-border {
-        &:not(:hover) {
+        background-color: transparent;
+        border: 2px solid var(--clr-att);
+        color: var(--clr-att);
+        &:before {
             background: transparent;
-            color: #231f20;
         }
         &:hover, &.active {
             background: var(--clr-att);
             border-color: var(--clr-att);
+            color: #fff;
+            .main-shadow();
             .button-ico {
                 filter: brightness(0) invert(1);
             }
         }
+        &.button-light {
+            border-color: #fff;
+            background-color: transparent;
+            color: #fff;
+            .button-ico {
+                filter: brightness(0) invert(1);
+            }
+            &:hover {
+                border-color: #fff;
+                background-color: #fff;
+                .button-ico {
+                    filter: none;
+                }
+            }
+        }
     }
     &.button-light {
-        background: #fff;
         color: var(--clr-att);
+        background-color: #fff;
+        &:before {
+            display: none;
+        }
         &:hover {
             color: var(--clr-att);
-            background: #fff;
+            background: #e0e0e0;
         }
     }
     .button-ico {
