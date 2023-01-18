@@ -19,6 +19,12 @@ $(document).ready(function(){
 	  });
 	  return this;
 	};
+    
+    
+    $('.tarifs-box .tbl-more-toggle').on('click', function() {
+        $(this).parents('.tarifs-box').toggleClass('show-all');
+        return false;
+    })
 
     //swipebox
     $('[data-swipebox]').swipebox();

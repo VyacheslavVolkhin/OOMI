@@ -1454,6 +1454,15 @@ body {
   width: 338px;
   height: 1384px;
 }
+.elm-check {
+  width: 1.77777778em;
+  height: 1.77777778em;
+  background: url(../img/icons/check.svg) center no-repeat;
+  background-size: 100% auto;
+}
+.elm-check.check-disabled {
+  background-image: url(../img/icons/check-disabled.svg);
+}
 @media (max-width: 1023px) {
   .elm-decor-side {
     display: none;
@@ -1765,6 +1774,135 @@ body {
 /* ----------------------------------- *\
 			content styles
 \* ----------------------------------- */
+.tarifs-box {
+  margin-bottom: 220px;
+  margin-bottom: 22rem;
+  font-size: 18px;
+}
+.tarifs-box .tbl-inner-wrap {
+  box-shadow: 0px 0px 20px rgba(198, 227, 255, 0.49), 0px 2px 0px #E1E1E1, 0px 19px 47px rgba(191, 197, 216, 0.51);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding: 20px;
+}
+.tarifs-box table {
+  table-layout: fixed;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.55555556;
+  text-align: left;
+  font-weight: 500;
+  color: #242545;
+  margin-bottom: 25px;
+}
+.tarifs-box table tr {
+  animation: fadein ease 0.2s;
+}
+.tarifs-box table.tbl-content th:first-child,
+.tarifs-box table.tbl-content td:first-child {
+  border-radius: 1.2rem 0 0 1.2rem;
+}
+.tarifs-box table.tbl-content th:last-child,
+.tarifs-box table.tbl-content td:last-child {
+  border-radius: 0 1.2rem 1.2rem 0;
+}
+.tarifs-box table.tbl-content tr:nth-child(2n+1) th,
+.tarifs-box table.tbl-content tr:nth-child(2n+1) td {
+  background-color: #F4F6FC;
+}
+.tarifs-box table.tbl-foot th,
+.tarifs-box table.tbl-foot td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.tarifs-box table.tbl-head th,
+.tarifs-box table.tbl-head td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.tarifs-box table .col01 {
+  width: 295px;
+}
+.tarifs-box table th,
+.tarifs-box table td {
+  text-align: left;
+  font-weight: 500;
+  padding: 1.66666667em 0 1.66666667em 20px;
+  vertical-align: middle;
+}
+.tarifs-box table .tbl-title {
+  font-size: 1.16666667em;
+  line-height: 1.80952381;
+  font-weight: bold;
+}
+.tarifs-box table .tbl-title.title-main {
+  font-size: 1.33333333em;
+  line-height: 1.58333333;
+}
+.tarifs-box table .td-title {
+  display: block;
+  font-size: 1em;
+  line-height: inherit;
+}
+.tarifs-box table .td-title.title-main {
+  font-size: 1.05555556em;
+  line-height: 2;
+  font-weight: bold;
+}
+.tarifs-box table .td-info {
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #7C7C8F;
+}
+.tarifs-box table .btn {
+  height: 49px;
+  padding: 0 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 0 -15px;
+}
+.tarifs-box .tbl-more-wrap {
+  font-size: 1.16666667em;
+  line-height: 1.80952381;
+  padding: 0px 0 50px 20px;
+  font-weight: bold;
+}
+.tarifs-box .tbl-more-toggle {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding: 0 26px 0 0;
+}
+.tarifs-box .tbl-more-toggle:before {
+  content: attr(data-show);
+}
+.tarifs-box .tbl-more-toggle:after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  background: url(../img/icons/arrow-toggle-second.svg) center no-repeat;
+  background-size: 100% auto;
+  top: 50%;
+  right: 0;
+  margin-top: -8px;
+  transition: all ease 0.2s;
+}
+.tarifs-box.show-all .tbl-more-toggle:after {
+  transform: rotate(180deg);
+}
+.tarifs-box.show-all .tbl-more-toggle:before {
+  content: attr(data-hide);
+}
+.tarifs-box:not(.show-all) .tr-hidden {
+  display: none;
+}
 .breadcrumbs-box {
   font-size: 16px;
   padding-top: 40px;
@@ -2049,7 +2187,28 @@ body {
 .title-box .h2-title {
   margin-bottom: 20px;
 }
+@media (max-width: 1199px) {
+  .tarifs-box {
+    font-size: 16px;
+  }
+}
 @media (max-width: 1023px) {
+  .tarifs-box .tbl-inner-wrap {
+    border-radius: 0;
+    margin-left: calc(var(--paddingContainer) * -1);
+    margin-right: calc(var(--paddingContainer) * -1);
+    padding-left: var(--paddingContainer);
+    padding-right: var(--paddingContainer);
+    overflow: auto;
+    -ms-overflow-style: none;
+  }
+  .tarifs-box .tbl-inner-wrap::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .tarifs-box table {
+    width: 1200px;
+  }
   .title-box .title-wrap {
     margin-right: 0;
     display: block;
